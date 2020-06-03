@@ -1,5 +1,5 @@
 module.exports = {
   name: 'drugs',
-  preset: '../../test/angular.config.js',
+  preset: '../../tools/test/angular.config.js',
   coverageDirectory: '../../coverage/apps/drugs',
 };
