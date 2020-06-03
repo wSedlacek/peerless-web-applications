@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "peerless-drugs": {
+      "hosting": {
+        "drugs": [
+          "peerless-drugs"
+        ]
+      }
+    }
+  }
+}

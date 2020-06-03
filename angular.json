@@ -110,6 +110,10 @@
             "passWithNoTests": true,
             "setupFile": "apps/drugs/src/test-setup.ts"
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     },
