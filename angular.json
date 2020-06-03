@@ -1,5 +1,20 @@
 {
   "version": 1,
+  "cli": {
+    "packageManager": "yarn",
+    "defaultCollection": "@nrwl/angular",
+    "analytics": false
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "drugs",
   "projects": {
     "drugs": {
       "projectType": "application",
@@ -22,7 +37,14 @@
             "tsConfig": "apps/drugs/tsconfig.app.json",
             "aot": true,
             "assets": ["apps/drugs/src/favicon.ico", "apps/drugs/src/assets"],
-            "styles": ["apps/drugs/src/styles.scss"],
+            "styles": [
+              "./node_modules/modern-normalize/modern-normalize.css",
+              "libs/styles/global.scss",
+              "apps/drugs/src/styles.scss"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["libs/styles"]
+            },
             "scripts": []
           },
           "configurations": {
@@ -117,19 +139,13 @@
           }
         }
       }
-    }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/angular"
-  },
-  "schematics": {
-    "@nrwl/angular:application": {
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
     },
-    "@nrwl/angular:library": {
-      "unitTestRunner": "jest"
+    "styles": {
+      "root": "libs/styles",
+      "sourceRoot": "libs/styles",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {}
     }
-  },
-  "defaultProject": "drugs"
+  }
 }

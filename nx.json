@@ -20,11 +20,17 @@
   },
   "projects": {
     "drugs": {
-      "tags": []
+      "tags": ["scope:drugs", "scope:client"],
+      "onlyDependOnLibsWithTags": ["scope:client"],
+      "implicitDependencies": ["styles"]
     },
     "drugs-e2e": {
-      "tags": [],
+      "tags": ["scope:drugs", "scope:e2e"],
+      "onlyDependOnLibsWithTags": ["scope:drugs", "scope:client"],
       "implicitDependencies": ["drugs"]
+    },
+    "styles": {
+      "tags": ["scope:client"]
     }
   }
 }

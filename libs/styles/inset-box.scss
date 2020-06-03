@@ -1,0 +1,15 @@
+@import 'math';
+
+@function makeInsetBox($sides, $size, $offset) {
+  $clip-path: 'polygon(0 0, calc(100% - #{$offset} - #{$size}px) 0,';
+
+  $half-sides: $sides / 2;
+  @for $i from 0 through $half-sides - 1 {
+    $percent: $i / $half-sides;
+    $cords: findPointOnCircle($size, $percent * pi());
+    $clip-path: '#{$clip-path} calc(100% - #{$offset} - #{map-get($cords, x)}px) #{map-get($cords, y)}px,';
+  }
+
+  $clip-path: '#{$clip-path} calc(100% - #{$offset} + #{$size}px) 0,100% 0, 100% 100%, 0 100%);';
+  @return $clip-path;
+}
