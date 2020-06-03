@@ -18,5 +18,13 @@
       }
     }
   },
-  "projects": {}
+  "projects": {
+    "drugs": {
+      "tags": []
+    },
+    "drugs-e2e": {
+      "tags": [],
+      "implicitDependencies": ["drugs"]
+    }
+  }
 }

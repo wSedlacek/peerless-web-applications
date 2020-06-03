@@ -1,7 +1,135 @@
 {
   "version": 1,
-  "projects": {},
+  "projects": {
+    "drugs": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/drugs",
+      "sourceRoot": "apps/drugs/src",
+      "prefix": "drugs",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/drugs",
+            "index": "apps/drugs/src/index.html",
+            "main": "apps/drugs/src/main.ts",
+            "polyfills": "apps/drugs/src/polyfills.ts",
+            "tsConfig": "apps/drugs/tsconfig.app.json",
+            "aot": true,
+            "assets": ["apps/drugs/src/favicon.ico", "apps/drugs/src/assets"],
+            "styles": ["apps/drugs/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/drugs/src/environments/environment.ts",
+                  "with": "apps/drugs/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "drugs:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "drugs:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "drugs:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/drugs/tsconfig.app.json", "apps/drugs/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**", "!apps/drugs/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/drugs/jest.config.js",
+            "tsConfig": "apps/drugs/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/drugs/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "drugs-e2e": {
+      "root": "apps/drugs-e2e",
+      "sourceRoot": "apps/drugs-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/drugs-e2e/cypress.json",
+            "tsConfig": "apps/drugs-e2e/tsconfig.e2e.json",
+            "devServerTarget": "drugs:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "drugs:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/drugs-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/drugs-e2e/**"]
+          }
+        }
+      }
+    }
+  },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
-  }
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "drugs"
 }
