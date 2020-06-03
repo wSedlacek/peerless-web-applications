@@ -153,6 +153,70 @@
       "projectType": "library",
       "schematics": {},
       "architect": {}
+    },
+    "session": {
+      "projectType": "library",
+      "root": "libs/client/session",
+      "sourceRoot": "libs/client/session/src",
+      "prefix": "session",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/client/session/tsconfig.lib.json",
+              "libs/client/session/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/client/session/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/client/session/jest.config.js",
+            "tsConfig": "libs/client/session/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/client/session/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "login": {
+      "projectType": "library",
+      "root": "libs/client/login",
+      "sourceRoot": "libs/client/login/src",
+      "prefix": "login",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/client/login/tsconfig.lib.json",
+              "libs/client/login/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/client/login/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/client/login/jest.config.js",
+            "tsConfig": "libs/client/login/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/client/login/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   }
 }

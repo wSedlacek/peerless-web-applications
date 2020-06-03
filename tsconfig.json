@@ -18,7 +18,10 @@
     "strict": true,
     "noImplicitReturns": true,
     "noImplicitAny": false,
-    "paths": {},
+    "paths": {
+      "@peerless/client/session": ["libs/client/session/src/index.ts"],
+      "@peerless/client/login": ["libs/client/login/src/index.ts"]
+    },
     "plugins": [
       {
         "name": "typescript-tslint-plugin"
