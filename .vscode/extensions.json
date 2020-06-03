@@ -1,8 +1,29 @@
 {
   "recommendations": [
-    "nrwl.angular-console",
     "angular.ng-template",
+    "ashinzekene.nestjs",
+    "christian-kohler.npm-intellisense",
+    "dannymcgee.scss-grammar-extended",
+    "dkneeland.yarn-task-provider",
+    "editorconfig.editorconfig",
+    "erhise.vs-ng-quick-switch",
+    "esbenp.prettier-vscode",
+    "fatihacet.gitlab-workflow",
+    "gamunu.vscode-yarn",
+    "joelday.docthis",
+    "logerfo.gitlab-notifications",
+    "pkief.material-icon-theme",
+    "marinhobrandao.angular2tests",
+    "mikael.angular-beastcode",
     "ms-vscode.vscode-typescript-tslint-plugin",
-    "esbenp.prettier-vscode"
+    "msjsdiag.debugger-for-chrome",
+    "nrwl.angular-console",
+    "prisma.prisma",
+    "prisma.vscode-graphql",
+    "redhat.vscode-yaml",
+    "sanderledegen.angular-follow-selector",
+    "syler.sass-indented",
+    "thisismanta.package-watch",
+    "visualstudioexptteam.vscodeintellicode"
   ]
 }

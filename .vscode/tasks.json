@@ -1,0 +1,66 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "yarn",
+      "task": "start:all",
+      "label": "Start Suite",
+      "detail": "Runs yarn start to start the default project...",
+      "isBackground": true,
+      "presentation": {
+        "echo": false,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": true
+      },
+      "problemMatcher": [
+        "$tsc-angular-cli-watch",
+        {
+          "pattern": [
+            {
+              "regexp": ".",
+              "file": 1,
+              "location": 2,
+              "message": 3
+            }
+          ],
+          "background": {
+            "activeOnStart": true,
+            "beginsPattern": "Compiling...",
+            "endsPattern": "Compiled .*"
+          }
+        }
+      ],
+      "promptOnClose": false
+    },
+    {
+      "type": "shell",
+      "command": "lsof -ti:4200 | xargs kill && lsof -ti:3333 | xargs kill",
+      "label": "Kill Server",
+      "detail": "Kills any open CLI serves",
+      "presentation": {
+        "echo": false,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "dedicated",
+        "showReuseMessage": false,
+        "clear": true
+      },
+      "promptOnClose": false
+    },
+    {
+      "type": "npm",
+      "script": "affected:build",
+      "label": "Build All Affected Apps",
+      "detail": "Runs npm run affected:build to produce outputs in `dist` for deployment...",
+      "problemMatcher": ["$tsc-angular-cli"],
+      "group": "build",
+      "isBackground": true,
+      "promptOnClose": true
+    }
+  ]
+}

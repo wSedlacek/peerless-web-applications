@@ -2,9 +2,9 @@
 
 This project was generated using [Nx](https://nx.dev).
 
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png" width="450"></p>
+![Nx](https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png)
 
-🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
+**Nx is a set of Extensible Dev Tools for Monorepos.**
 
 ## Quick Start & Documentation
 
@@ -53,7 +53,7 @@ Libraries are sharable across libraries and applications. They can be imported f
 
 ## Development server
 
-Run `ng serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+Run `ng serve my-app` for a dev server. Navigate to <http://localhost:4200/.> The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
