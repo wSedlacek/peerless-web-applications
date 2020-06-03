@@ -2,7 +2,7 @@
   "hosting": [
     {
       "target": "drugs",
-      "public": "dist/apps/drugs",
+      "public": "dist/apps/client/drugs",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
