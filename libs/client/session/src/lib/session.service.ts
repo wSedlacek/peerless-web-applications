@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { AngularFireAuth } from '@angular/fire/auth';
-import { auth as firebaseAuth } from 'firebase/app';
+import { auth as firebaseAuth, User } from 'firebase/app';
 
 @Injectable({
   providedIn: 'root',
@@ -10,11 +10,15 @@ export class SessionService {
   constructor(public auth: AngularFireAuth) {}
   public readonly user$ = this.auth.user;
 
-  public login(): void {
-    this.auth.signInWithPopup(new firebaseAuth.GoogleAuthProvider());
+  public get user(): Promise<User | null> {
+    return this.auth.currentUser;
   }
 
-  public logout(): void {
-    this.auth.signOut();
+  public async login(): Promise<void> {
+    await this.auth.signInWithPopup(new firebaseAuth.GoogleAuthProvider());
+  }
+
+  public async logout(): Promise<void> {
+    await this.auth.signOut();
   }
 }

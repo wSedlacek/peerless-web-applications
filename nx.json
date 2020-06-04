@@ -21,22 +21,28 @@
   "projects": {
     "drugs": {
       "tags": ["scope:drugs", "scope:client"],
-      "onlyDependOnLibsWithTags": ["scope:client"],
+      "onlyDependOnLibsWithTags": ["scope:client", "scope:testing"],
       "implicitDependencies": ["styles"]
     },
     "drugs-e2e": {
       "tags": ["scope:drugs", "scope:e2e"],
-      "onlyDependOnLibsWithTags": ["scope:drugs", "scope:client"],
+      "onlyDependOnLibsWithTags": ["scope:testing"],
       "implicitDependencies": ["drugs"]
     },
     "styles": {
-      "tags": ["scope:client"]
+      "tags": ["scope:client", "scope:style"],
+      "onlyDependOnLibsWithTags": ["scope:style"]
     },
     "session": {
-      "tags": ["scope:client"]
+      "tags": ["scope:client"],
+      "onlyDependOnLibsWithTags": ["scope:client", "scope:testing"]
     },
     "login": {
-      "tags": ["scope:client"]
+      "tags": ["scope:client"],
+      "onlyDependOnLibsWithTags": ["scope:client", "scope:testing"]
+    },
+    "testing-fire": {
+      "tags": ["scope:testing"]
     }
   }
 }

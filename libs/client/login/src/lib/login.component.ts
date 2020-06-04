@@ -12,11 +12,11 @@ export class LoginComponent implements OnInit {
   @Override()
   public ngOnInit(): void {}
 
-  public login(): void {
-    this.session.login();
+  public async login(): Promise<void> {
+    await this.session.login();
   }
 
-  public logout(): void {
-    this.session.logout();
+  public async logout(): Promise<void> {
+    await this.session.logout();
   }
 }
