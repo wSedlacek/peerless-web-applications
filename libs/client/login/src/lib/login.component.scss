@@ -1,0 +1,27 @@
+@import 'background';
+@import 'global-variables';
+@import "inset-box";
+
+:host {
+  display: flex;
+  place-content: center;
+  place-items: center;
+
+  @extend .background;
+}
+
+mat-card {
+  width: 350px;
+  clip-path: #{makeInsetBox(92, 96, 50%)};
+
+  img {
+    height: 280px;
+    margin-top: -180px;
+  }
+
+  button {
+    background-color: $gray;
+    color: white;
+    width: 200px;
+  }
+}
