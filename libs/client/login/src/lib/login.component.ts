@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+
+import { ActivatedRoute } from '@angular/router';
 import { SessionService } from '@peerless/client/session';
 
 @Component({
@@ -6,7 +8,7 @@ import { SessionService } from '@peerless/client/session';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  constructor(private readonly session: SessionService) {}
+  constructor(private readonly session: SessionService, private readonly route: ActivatedRoute) {}
   public user$ = this.session.user$;
 
   @Override()
@@ -14,10 +16,11 @@ export class LoginComponent implements OnInit {
 
   public async login(): Promise<void> {
     try {
-      await this.session.login();
+      const { redirect } = this.route.snapshot.data;
+      await this.session.login({ redirect });
     } catch {
       // TODO: Replace with animation or something
-      console.log('User did not login');
+      console.warn('User did not login');
     }
   }
 }

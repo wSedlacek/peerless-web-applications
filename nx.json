@@ -47,6 +47,9 @@
     },
     "testing-fire": {
       "tags": ["scope:testing"]
+    },
+    "testing-helpers": {
+      "tags": []
     }
   }
 }

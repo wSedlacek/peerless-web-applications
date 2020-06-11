@@ -15,7 +15,12 @@ import { LoginComponent } from './login.component';
     FlexLayoutModule,
     MatButtonModule,
     MatCardModule,
-    RouterModule.forChild([{ path: '', component: LoginComponent }]),
+    RouterModule.forChild([
+      {
+        path: '',
+        component: LoginComponent,
+      },
+    ]),
   ],
   declarations: [LoginComponent],
 })

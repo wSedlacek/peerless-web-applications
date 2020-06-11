@@ -4,6 +4,8 @@ import { FirebaseApp } from '@angular/fire';
 import { BehaviorSubject, of } from 'rxjs';
 
 import { User } from 'firebase';
+import { MockAuth } from 'mockbase/auth';
+import { EXAMPLE_USER } from './example-user';
 
 @Injectable({ providedIn: 'root' })
 export class AngularFireAuthMock {
@@ -17,6 +19,10 @@ export class AngularFireAuthMock {
   }
 
   public readonly signInWithPopup = jest.fn().mockImplementation(async () => {
+    (this.app.auth() as MockAuth)
+      .mockSocialSignIn({ providerId: 'mock' })
+      .respondWithUser(EXAMPLE_USER.displayName, EXAMPLE_USER.email);
+
     const creds = await this.app.auth().signInWithPopup({ providerId: 'mock' });
     this.internalUser.next(creds.user);
 

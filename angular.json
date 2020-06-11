@@ -281,6 +281,38 @@
           "style": "scss"
         }
       }
+    },
+    "testing-helpers": {
+      "projectType": "library",
+      "root": "libs/testing/helpers",
+      "sourceRoot": "libs/testing/helpers/src",
+      "prefix": "peerless",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/testing/helpers/tsconfig.lib.json",
+              "libs/testing/helpers/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/testing/helpers/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/testing/helpers/jest.config.js",
+            "tsConfig": "libs/testing/helpers/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/testing/helpers/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   }
 }
