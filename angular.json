@@ -218,6 +218,38 @@
         }
       }
     },
+    "patients": {
+      "projectType": "library",
+      "root": "libs/client/patients",
+      "sourceRoot": "libs/client/patients/src",
+      "prefix": "peerless",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/client/patients/tsconfig.lib.json",
+              "libs/client/patients/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/client/patients/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/client/patients/jest.config.js",
+            "tsConfig": "libs/client/patients/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/client/patients/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
     "testing-fire": {
       "projectType": "library",
       "root": "libs/testing/fire",

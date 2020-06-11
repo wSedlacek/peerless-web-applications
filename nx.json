@@ -41,6 +41,10 @@
       "tags": ["scope:client"],
       "onlyDependOnLibsWithTags": ["scope:client", "scope:testing"]
     },
+    "patients": {
+      "tags": ["scope:client"],
+      "onlyDependOnLibsWithTags": ["scope:client", "scope:testing"]
+    },
     "testing-fire": {
       "tags": ["scope:testing"]
     }

@@ -21,6 +21,7 @@
     "paths": {
       "@peerless/client/session": ["libs/client/session/src/index.ts"],
       "@peerless/client/login": ["libs/client/login/src/index.ts"],
+      "@peerless/client/patients": ["libs/client/patients/src/index.ts"],
       "@peerless/testing/fire": ["libs/testing/fire/src/index.ts"]
     },
     "plugins": [
