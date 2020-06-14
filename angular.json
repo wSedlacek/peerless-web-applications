@@ -142,7 +142,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": ["apps/client/drugs-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/client/drugs-e2e/**"]
+            "exclude": ["**/node_modules/**", "!apps/client/drugs-e2e/**/*"]
           }
         }
       }
@@ -167,7 +167,7 @@
               "libs/client/session/tsconfig.lib.json",
               "libs/client/session/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/client/session/**"]
+            "exclude": ["**/node_modules/**", "!libs/client/session/**/*"]
           }
         },
         "test": {
@@ -199,7 +199,7 @@
               "libs/client/login/tsconfig.lib.json",
               "libs/client/login/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/client/login/**"]
+            "exclude": ["**/node_modules/**", "!libs/client/login/**/*"]
           }
         },
         "test": {
@@ -231,7 +231,7 @@
               "libs/client/patients/tsconfig.lib.json",
               "libs/client/patients/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/client/patients/**"]
+            "exclude": ["**/node_modules/**", "!libs/client/patients/**/*"]
           }
         },
         "test": {
@@ -263,7 +263,7 @@
               "libs/testing/fire/tsconfig.lib.json",
               "libs/testing/fire/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/testing/fire/**"]
+            "exclude": ["**/node_modules/**", "!libs/testing/fire/**/*"]
           }
         },
         "test": {
@@ -295,7 +295,7 @@
               "libs/testing/helpers/tsconfig.lib.json",
               "libs/testing/helpers/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/testing/helpers/**"]
+            "exclude": ["**/node_modules/**", "!libs/testing/helpers/**/*"]
           }
         },
         "test": {
