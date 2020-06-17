@@ -23,7 +23,8 @@
       "@peerless/client/login": ["libs/client/login/src/index.ts"],
       "@peerless/client/patients": ["libs/client/patients/src/index.ts"],
       "@peerless/testing/fire": ["libs/testing/fire/src/index.ts"],
-      "@peerless/testing/helpers": ["libs/testing/helpers/src/index.ts"]
+      "@peerless/testing/helpers": ["libs/testing/helpers/src/index.ts"],
+      "@peerless/extensions/akita": ["libs/extensions/akita/src/index.ts"]
     },
     "plugins": [
       {

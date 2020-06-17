@@ -1,0 +1,7 @@
+<mat-card class="mat-elevation-z8">
+  <mat-card-title [routerLink]="'/patient/' + patient?.id">{{ patient?.name }}</mat-card-title>
+  <mat-card-actions>
+    <button mat-button (click)="remove.emit()">Remove</button>
+    <button mat-button (click)="edit.emit()">Edit</button>
+  </mat-card-actions>
+</mat-card>

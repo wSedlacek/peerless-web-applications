@@ -1,0 +1,15 @@
+<main mat-dialog-content>
+  <h4>What is the name of your patient?</h4>
+  <form [formGroup]="form">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+  </form>
+</main>
+<footer mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Never mind</button>
+  <button mat-button [disabled]="!form.valid" [mat-dialog-close]="form.value">
+    Confirm
+  </button>
+</footer>

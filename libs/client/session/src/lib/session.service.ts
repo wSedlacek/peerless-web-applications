@@ -2,11 +2,11 @@ import { Injectable, NgZone } from '@angular/core';
 
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { isString } from '@datorama/akita';
 import { auth as firebaseAuth, User } from 'firebase/app';
+import { filter, map } from 'rxjs/operators';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class SessionService {
   constructor(
     public auth: AngularFireAuth,
@@ -15,9 +15,15 @@ export class SessionService {
   ) {}
 
   public readonly user$ = this.auth.user;
+  public readonly uid$ = this.auth.user.pipe(map((user) => user?.uid));
+  public readonly whileLoggedIn$ = this.uid$.pipe(filter(isString));
 
   public get user(): Promise<User | null> {
     return this.auth.currentUser;
+  }
+
+  public get uid(): Promise<string | undefined> {
+    return this.user.then((user) => user?.uid);
   }
 
   public async login(config?: {

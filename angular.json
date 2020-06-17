@@ -12,17 +12,15 @@
     },
     "@nrwl/angular:library": {
       "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
     }
   },
   "defaultProject": "drugs",
   "projects": {
     "drugs": {
       "projectType": "application",
-      "schematics": {
-        "@nrwl/angular:component": {
-          "style": "scss"
-        }
-      },
       "root": "apps/client/drugs",
       "sourceRoot": "apps/client/drugs/src",
       "prefix": "drugs",
@@ -71,7 +69,7 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
+                  "maximumWarning": "8kb",
                   "maximumError": "10kb"
                 }
               ]
@@ -179,11 +177,6 @@
             "setupFile": "libs/client/session/src/test-setup.ts"
           }
         }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "style": "scss"
-        }
       }
     },
     "login": {
@@ -210,11 +203,6 @@
             "passWithNoTests": true,
             "setupFile": "libs/client/login/src/test-setup.ts"
           }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "style": "scss"
         }
       }
     },
@@ -243,11 +231,6 @@
             "setupFile": "libs/client/patients/src/test-setup.ts"
           }
         }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "style": "scss"
-        }
       }
     },
     "testing-fire": {
@@ -274,11 +257,6 @@
             "passWithNoTests": true,
             "setupFile": "libs/testing/fire/src/test-setup.ts"
           }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "style": "scss"
         }
       }
     },
@@ -307,10 +285,32 @@
             "setupFile": "libs/testing/helpers/src/test-setup.ts"
           }
         }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "style": "scss"
+      }
+    },
+    "extensions-akita": {
+      "projectType": "library",
+      "root": "libs/extensions/akita",
+      "sourceRoot": "libs/extensions/akita/src",
+      "prefix": "peerless",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/extensions/akita/tsconfig.lib.json",
+              "libs/extensions/akita/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/extensions/akita/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/extensions/akita/jest.config.js",
+            "tsConfig": "libs/extensions/akita/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/extensions/akita/src/test-setup.ts"
+          }
         }
       }
     }

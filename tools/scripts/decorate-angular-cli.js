@@ -83,7 +83,11 @@ function symlinkNgCLItoNxCLI() {
 try {
   symlinkNgCLItoNxCLI();
   patchAngularCLI(angularCLIInitPath);
-  output.log({ title: 'Angular CLI has been decorated to enable computation caching.' });
+  output.log({
+    title: 'Angular CLI has been decorated to enable computation caching.',
+  });
 } catch (e) {
-  output.error({ title: 'Decoration of the Angular CLI did not complete successfully' });
+  output.error({
+    title: 'Decoration of the Angular CLI did not complete successfully',
+  });
 }

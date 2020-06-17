@@ -1,0 +1,14 @@
+<button mat-button (click)="logout()">Logout</button>
+
+<main>
+  <peerless-patient
+    *ngFor="let patient of patients$ | async; trackBy: trackByID"
+    [patient]="patient"
+    (remove)="remove(patient.id)"
+    (edit)="edit(patient)"
+  ></peerless-patient>
+</main>
+
+<footer>
+  <button mat-fab (click)="add()"><mat-icon>add</mat-icon></button>
+</footer>
